@@ -1,13 +1,18 @@
-
-
 const themeToggle = document.getElementById("theme-toggle");
 
-console.log(themeToggle);
+// Apply saved theme on page load
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
 
 themeToggle.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
-    console.log("clicked");
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
 
 });
